@@ -13,6 +13,12 @@
   font-weight: 300;
 }
 
+.stopwatch-screen {
+  background-color: black;
+  width: var(--screen-width);
+  height: 705px;
+}
+
 /* Buttons Section */
 .stopwatch-button-container {
   height: 78px;
@@ -56,11 +62,7 @@
 
 /* Buttons Section End */
 
-.stopwatch-screen {
-  background-color: black;
-  width: var(--screen-width);
-  height: 705px;
-}
+/* Timer Section */
 
 .stopwatch-timer-container {
   width: 100%;
@@ -76,6 +78,10 @@
   font-variant-numeric: tabular-nums;
   font-weight: 200;
 }
+
+/* Timer Section End */
+
+/* Table Section */
 
 .stopwatch-table-container {
   background-color: black;
@@ -116,3 +122,5 @@ tr {
 .slowest-lap {
   color: var(--stop-button-text-color);
 }
+
+/* Table Section End */

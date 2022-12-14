@@ -1,23 +1,14 @@
 import Timer from './Timer'
 import Button from './Button'
 import Table from './Table'
-import reducer, { ACTIONS, initialState } from '../../reducers/stopwatch-reducer'
-import { useEffect, useReducer } from 'react'
+import reducer, { initialState } from '../../reducers/stopwatch-reducer'
+import { useReducer } from 'react'
+import useTimer from '../../hooks/useTimer'
 
 export default function Screen() {
   const [states, dispatch]: [typeof initialState, Function] = useReducer(reducer, initialState)
 
-  useEffect(() => {
-    if (states.isTimerRunning === true) {
-      const timerID = setInterval(() => {
-        dispatch({
-          type: ACTIONS.SET_ELAPSEDTIME,
-          elapsedTime: Date.now() - states.timestamp,
-        })
-      }, 10)
-      return () => clearInterval(timerID)
-    }
-  }, [states])
+  useTimer(states, dispatch)
 
   return (
     <section className='stopwatch-screen'>
