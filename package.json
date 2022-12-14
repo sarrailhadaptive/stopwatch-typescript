@@ -1,9 +1,9 @@
 {
-  "homepage": "https://sarrailhadaptive.github.io/stopwatch-typescript",
   "name": "stopwatch-react-typescript",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://sarrailhadaptive.github.io/stopwatch-typescript/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
