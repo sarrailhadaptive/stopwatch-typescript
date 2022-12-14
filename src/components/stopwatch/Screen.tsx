@@ -19,22 +19,14 @@ export default function Screen() {
     }
   }, [states])
 
-  const startTimer = (timestamp: number) => {
-    dispatch({ type: ACTIONS.START_TIMER, timestamp: timestamp })
-  }
-
-  const stopTimer = () => {
-    dispatch({ type: ACTIONS.STOP_TIMER })
-  }
-
   return (
     <section className='stopwatch-screen'>
       <Timer elapsedTime={states.elapsedTime} />
       <section className='stopwatch-button-container'>
-        <Button buttonType={states.isTimerRunning ? 'lap' : 'reset'} startTimer={startTimer} stopTimer={stopTimer} />
-        <Button buttonType={states.isTimerRunning ? 'stop' : 'start'} startTimer={startTimer} stopTimer={stopTimer} />
+        <Button buttonType={states.isTimerRunning ? 'lap' : 'reset'} dispatch={dispatch} />
+        <Button buttonType={states.isTimerRunning ? 'stop' : 'start'} dispatch={dispatch} />
       </section>
-      <Table />
+      <Table elapsedTime={states.elapsedTime} lapNumber={states.lapNumber} lapRows={states.lapRows} />
     </section>
   )
 }

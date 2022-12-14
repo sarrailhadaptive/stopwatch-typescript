@@ -30,14 +30,20 @@
 
 .stopwatch-button-start {
   background-color: #16472e;
-  color: #04de71;
+  color: var(--start-button-text-color);
 }
 
 .stopwatch-button-stop {
   background-color: #50211f;
-  color: #ff3b30;
+  color: var(--stop-button-text-color);
 }
 
+.stopwatch-button-stop:hover,
+.stopwatch-button-start:hover,
+.stopwatch-button-reset:hover,
+.stopwatch-button-lap:hover {
+  opacity: 0.6;
+}
 .stopwatch-button-reset {
   background-color: var(--lap-reset-bg-color);
   color: #fff;
@@ -51,14 +57,9 @@
 /* Buttons Section End */
 
 .stopwatch-screen {
-  background-color: #242424;
+  background-color: black;
   width: var(--screen-width);
   height: 705px;
-}
-
-.stopwatch-table-container {
-  width: 100%;
-  height: 294px;
 }
 
 .stopwatch-timer-container {
@@ -70,6 +71,48 @@
 }
 
 .stopwatch-timer-container > h1 {
-  font-size: 70px;
+  margin-top: 140px;
+  font-size: 65px;
   font-variant-numeric: tabular-nums;
+  font-weight: 200;
+}
+
+.stopwatch-table-container {
+  background-color: black;
+  width: 100%;
+  height: 294px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  overscroll-behavior: auto;
+}
+
+.stopwatch-table-container::-webkit-scrollbar {
+  display: none;
+}
+
+.stopwatch-table-container > table {
+  width: 100%;
+  padding: 10px 16px 0 16px;
+}
+
+tr {
+  display: flex;
+  height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 0.1px gray;
+  font-variant-numeric: tabular-nums;
+  color: var(--white);
+}
+
+.first-lap {
+  border-top: solid 0.1px gray;
+}
+
+.fastest-lap {
+  color: var(--start-button-text-color);
+}
+
+.slowest-lap {
+  color: var(--stop-button-text-color);
 }

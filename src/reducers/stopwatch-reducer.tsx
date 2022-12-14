@@ -1,4 +1,4 @@
-type LapRows = {
+export type LapRows = {
   id: number
   time: number
 }
@@ -9,6 +9,12 @@ type initialState = {
   lapNumber: number
   lapRows: LapRows[]
   elapsedTime: number
+}
+
+export type TableProps = {
+  elapsedTime: number
+  lapNumber: number
+  lapRows: LapRows[]
 }
 
 type Actions = {
