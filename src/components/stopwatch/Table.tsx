@@ -1,4 +1,4 @@
-import { TableProps } from '../../reducers/stopwatch-reducer'
+import { TableProps } from '../../types/interfaces'
 import { createRow, defaultRow } from '../../utilities/table-utils'
 
 export default function Table({ elapsedTime, lapNumber, lapRows }: TableProps) {
