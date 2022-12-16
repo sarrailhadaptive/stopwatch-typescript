@@ -1,4 +1,4 @@
-import { LapRows } from '../reducers/stopwatch-reducer'
+import { LapRows } from '../types/interfaces'
 import transformTime from './formatting-utils'
 
 function findSmallestLapTime(lapRows: LapRows[]) {

@@ -1,33 +1,9 @@
-export type LapRows = {
-  id: number
-  time: number
-}
-
-type initialState = {
+import { LapRows, Actions, Action } from '../types/interfaces'
+interface initialState {
   isTimerRunning: boolean
   timestamp: number
   lapNumber: number
   lapRows: LapRows[]
-  elapsedTime: number
-}
-
-export type TableProps = {
-  elapsedTime: number
-  lapNumber: number
-  lapRows: LapRows[]
-}
-
-type Actions = {
-  START_TIMER: string
-  SET_ELAPSEDTIME: string
-  STOP_TIMER: string
-  ADD_LAP: string
-  RESET_TIMER: string
-}
-
-type Action = {
-  type: string
-  timestamp: number
   elapsedTime: number
 }
 
