@@ -13,9 +13,9 @@ test('Is deployed', async ({page}) => {
   await expect(page).toHaveURL('https://sarrailhadaptive.github.io/stopwatch-typescript/')
 })
 
-test('Start and Stop Stopwatch', async ({ page }) => {
+test('Start, add Laps and Stop Stopwatch', async ({ page }) => {
   await page.goto('https://sarrailhadaptive.github.io/stopwatch-typescript/')
-  await page.screenshot({path: './src/tests-screenshots/stopwatch.png'})
+  await page.screenshot({ path: './src/screenshots/start-lap-stop/stopwatch.png' })
   await page.click('button.stopwatch-button-start')
   await delay(650)
   await page.click('button.stopwatch-button-lap')
@@ -27,8 +27,19 @@ test('Start and Stop Stopwatch', async ({ page }) => {
   await page.click('button.stopwatch-button-lap')
   await delay(1500)
   await page.click('button.stopwatch-button-stop')
-  await page.screenshot({path: './src/tests-screenshots/after-start.png'})
+  await page.screenshot({ path: './src/screenshots/start-lap-stop/after-start.png' })
   await page.click('button.stopwatch-button-reset')
-  await page.screenshot({path: './src/tests-screenshots/reset.png'})
+  await page.screenshot({ path: './src/screenshots/start-lap-stop/reset.png' })
   page.close()
+})
+
+test('Check correct colors and classnames for components', async ({ page }) => {
+  await page.goto('https://sarrailhadaptive.github.io/stopwatch-typescript/')
+  const buttonStart = page.getByRole('button', { name: 'Start', exact: true })
+  await expect(buttonStart).toHaveClass('stopwatch-button-start')
+  await page.screenshot({ path: './src/screenshots/check-classes/start.png' })
+  await page.click('button.stopwatch-button-start')
+  const buttonStop = page.getByRole('button', { name: 'Stop', exact: true})
+  await expect(buttonStop).toHaveClass('stopwatch-button-stop')
+  await page.screenshot({ path: './src/screenshots/check-classes/stop.png' })
 })
